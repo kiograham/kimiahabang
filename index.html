@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home UI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="header">
+            <span class="time" id="real-time-clock">09:00</span>
+            <div class="status-bar">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-three-quarters" id="battery-status"></i>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="card living-room-card">
+                <i class="fas fa-flask"></i> 
+                <div class="room-details">
+                    <p class="room-name">ASAM BASA</p>
+                    <div class="info-row">
+                        <span>KELAS</span>
+                        <span class="value">XII A2</span>
+                    </div>
+                    <div class="info-row">
+                        <span>KELOMPOK</span>
+                        <span class="value">1</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-grid">
+                <a href="isi kalkulator/indexisi.html" style="text-decoration: none; color: inherit;">
+                    <div class="control-card" data-control="lights">
+                        <i class="fas fa-calculator"></i>
+                        <span class="card-label">KALKULATOR</span>
+                    </div>
+                </a>
+                
+                <a href="isi materi/index.html" style="text-decoration: none; color: inherit;">
+        <div class="control-card" data-control="conditioner">
+            <i class="fas fa-book"></i>
+            <span class="card-label">Materi</span>
+        </div>
+    </div>
+</a>
+
+        <div class="bottom-nav">
+            <div class="nav-item" data-page="home">
+                <span>XII</span>
+            </div>
+            <div class="nav-item" data-page="settings">
+                <span>A</span>
+            </div>
+            <div class="nav-item" data-page="notifications">
+                <span>2</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Fungsi untuk memperbarui jam setiap menit dalam zona waktu WIB
+        function updateClock() {
+            const now = new Date();
+            const timeOptions = {
+                hour: '2-digit',
+                minute: '2-digit',
+                timeZone: 'Asia/Jakarta' // Menyesuaikan zona waktu WIB
+            };
+            const timeString = now.toLocaleTimeString('id-ID', timeOptions);
+            document.getElementById('real-time-clock').textContent = timeString;
+        }
+
+        // Fungsi untuk memperbarui status baterai
+        function updateBatteryStatus() {
+            if ("getBattery" in navigator) {
+                navigator.getBattery().then(function(battery) {
+                    const batteryLevel = Math.round(battery.level * 100);
+                    const batteryIcon = document.getElementById('battery-status');
+                    
+                    if (batteryLevel > 75) {
+                        batteryIcon.className = 'fas fa-battery-full';
+                    } else if (batteryLevel > 50) {
+                        batteryIcon.className = 'fas fa-battery-three-quarters';
+                    } else if (batteryLevel > 25) {
+                        batteryIcon.className = 'fas fa-battery-half';
+                    } else {
+                        batteryIcon.className = 'fas fa-battery-quarter';
+                    }
+                    // Menambahkan atribut judul untuk menampilkan persentase baterai
+                    batteryIcon.setAttribute('title', `${batteryLevel}%`);
+                });
+            }
+        }
+
+        // Panggil fungsi saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            updateClock();
+            updateBatteryStatus();
+            
+            // Perbarui jam setiap menit
+            setInterval(updateClock, 60000); 
+            // Perbarui status baterai setiap 30 detik
+            setInterval(updateBatteryStatus, 30000);
+        });
+
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,235 @@
+/*
+=========================================================
+Gaya CSS untuk Tampilan Neumorphism
+=========================================================
+*/
+:root {
+    --bg-color: #e0e0e0;
+    --light-shadow: #ffffff;
+    --dark-shadow: #a3b1c6;
+    --primary-color: #3b82f6;
+    --active-color: #3b5998;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    user-select: none;
+    box-sizing: border-box;
+    padding: 0; /* Menghapus padding agar app memenuhi seluruh layar */
+}
+
+.app-container {
+    width: 100%; /* Menggunakan lebar 100% untuk mengisi layar */
+    height: 100vh; /* Menggunakan tinggi 100% dari viewport */
+    background-color: var(--bg-color);
+    border-radius: 0; /* Menghilangkan border-radius untuk tampilan full-screen */
+    padding: 40px 15px 25px; /* Padding disesuaikan */
+    box-shadow: none; /* Menghilangkan bayangan kontainer utama */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.time {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #444;
+}
+
+.status-bar i {
+    margin-left: 8px;
+    color: #666;
+}
+
+/* Konten Utama */
+.main-content {
+    flex-grow: 1;
+    padding: 0;
+}
+
+/* Kartu Utama (dengan gradien) */
+.living-room-card {
+    background-image: linear-gradient(to right, #4c669f, #3b5998, #192f6a);
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    color: white;
+    transition: transform 0.2s ease-in-out;
+    overflow: hidden;
+}
+
+.living-room-card:active {
+    transform: scale(0.98);
+}
+
+.living-room-card .fa-flask {
+    font-size: 60px;
+    margin-right: 20px;
+}
+
+.room-details {
+    flex-grow: 1;
+    text-align: right;
+    overflow: hidden;
+}
+
+/* Gaya untuk teks berjalan */
+.room-name {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    white-space: nowrap;
+    animation: marquee 15s linear infinite;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.info-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    gap: 2px;
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.info-row .value {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-left: 5px;
+}
+
+/* Kartu-kartu Kontrol Kecil */
+.control-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 80px;
+}
+
+.control-card {
+    background-color: var(--bg-color);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 5px 5px 10px var(--dark-shadow), -5px -5px 10px var(--light-shadow);
+    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.control-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 8px 8px 15px var(--dark-shadow), -8px -8px 15px var(--light-shadow);
+}
+
+.control-card:active {
+    box-shadow: inset 5px 5px 10px var(--dark-shadow), inset -5px -5px 10px var(--light-shadow);
+    transform: scale(0.98);
+}
+
+.control-card i {
+    font-size: 160px;
+    margin-bottom: 60px;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Pewarnaan ikon */
+.control-card[data-control="lights"] i { color: #ffaa00; }
+.control-card[data-control="camera"] i { color: #666; }
+.control-card[data-control="conditioner"] i { color: #3b82f6; }
+.control-card[data-control="humidifier"] i { color: #46c3db; }
+.control-card[data-control="ph-test"] i { color: #8a2be2; }
+.control-card[data-control="microscope"] i { color: #198754; }
+
+.card-label {
+    font-size: 24p;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Navigasi Bawah */
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--bg-color);
+    padding: 15px 0;
+    margin: 20px 0 10px;
+    box-shadow: 5px 5px 10px var(--dark-shadow), -5px -5px 10px var(--light-shadow);
+    border-radius: 30px;
+}
+
+.nav-item {
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 3px 3px 6px var(--dark-shadow), -3px -3px 6px var(--light-shadow);
+    transition: all 0.2s ease;
+}
+
+.nav-item i, .nav-item span {
+    font-size: 24px;
+    color: #666;
+    transition: color 0.2s ease;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+.nav-item:hover {
+    transform: translateY(-3px);
+}
+
+.nav-item.active {
+    background-color: var(--active-color);
+    box-shadow: inset 3px 3px 6px var(--dark-shadow), inset -3px -3px 6px var(--light-shadow);
+}
+
+.nav-item.active i, .nav-item.active span {
+    color: white;
+}
+
+/* Media query untuk layar yang lebih kecil */
+@media (max-width: 380px) {
+    .app-container {
+        padding: 20px 15px;
+    }
+
+    .control-card {
+        padding: 15px;
+    }
+
+    .control-card i {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .control-card .card-label {
+        font-size: 0.9em;
+    }
+}

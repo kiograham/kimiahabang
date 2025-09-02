@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator pH</title>
+    <link rel="stylesheet" href="styleisi.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="calculator-container">
+        <a href="#" onclick="history.back()" class="back-btn" style="text-decoration: none; color: inherit;">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        
+        <h2 class="calculator-title">Kalkulator pH</h2>
+
+        <div class="display-container">
+            <input type="text" id="input-konsentrasi" placeholder="Masukkan konsentrasi [H+]" class="input-field">
+            <div class="result-display" id="result-display">pH = ?</div>
+        </div>
+
+        <div class="button-grid">
+            <button class="calc-btn" data-action="calculate">Hitung pH</button>
+            <button class="calc-btn" data-action="reset">Reset</button>
+            <button class="calc-btn" data-action="poh">Hitung pOH</button>
+        </div>
+    </div>
+
+    <script src="scriptisi.js"></script>
+</body>
+</html>
