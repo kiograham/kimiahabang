@@ -34,21 +34,35 @@
                 </div>
             </div>
 
-            <div class="control-grid">
+            <div class="control-list">
                 <a href="isi kalkulator/indexisi.html" style="text-decoration: none; color: inherit;">
                     <div class="control-card" data-control="lights">
-                        <i class="fas fa-calculator"></i>
-                        <span class="card-label">KALKULATOR</span>
+                        <div class="icon-and-label">
+                            <i class="fas fa-calculator"></i>
+                            <span class="card-label">KALKULATOR</span>
+                        </div>
                     </div>
                 </a>
                 
                 <a href="isi materi/index.html" style="text-decoration: none; color: inherit;">
-        <div class="control-card" data-control="conditioner">
-            <i class="fas fa-book"></i>
-            <span class="card-label">Materi</span>
+                    <div class="control-card" data-control="conditioner">
+                        <div class="icon-and-label">
+                            <i class="fas fa-book"></i>
+                            <span class="card-label">MATERI</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="ph check/index.html" style="text-decoration: none; color: inherit;">
+                    <div class="control-card" data-control="ph-test">
+                        <div class="icon-and-label">
+                            <i class="fas fa-vial"></i> 
+                            <span class="card-label">INDIKATOR PH</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </div>
-    </div>
-</a>
 
         <div class="bottom-nav">
             <div class="nav-item" data-page="home">
@@ -62,53 +76,7 @@
             </div>
         </div>
     </div>
-    <script>
-        // Fungsi untuk memperbarui jam setiap menit dalam zona waktu WIB
-        function updateClock() {
-            const now = new Date();
-            const timeOptions = {
-                hour: '2-digit',
-                minute: '2-digit',
-                timeZone: 'Asia/Jakarta' // Menyesuaikan zona waktu WIB
-            };
-            const timeString = now.toLocaleTimeString('id-ID', timeOptions);
-            document.getElementById('real-time-clock').textContent = timeString;
-        }
-
-        // Fungsi untuk memperbarui status baterai
-        function updateBatteryStatus() {
-            if ("getBattery" in navigator) {
-                navigator.getBattery().then(function(battery) {
-                    const batteryLevel = Math.round(battery.level * 100);
-                    const batteryIcon = document.getElementById('battery-status');
-                    
-                    if (batteryLevel > 75) {
-                        batteryIcon.className = 'fas fa-battery-full';
-                    } else if (batteryLevel > 50) {
-                        batteryIcon.className = 'fas fa-battery-three-quarters';
-                    } else if (batteryLevel > 25) {
-                        batteryIcon.className = 'fas fa-battery-half';
-                    } else {
-                        batteryIcon.className = 'fas fa-battery-quarter';
-                    }
-                    // Menambahkan atribut judul untuk menampilkan persentase baterai
-                    batteryIcon.setAttribute('title', `${batteryLevel}%`);
-                });
-            }
-        }
-
-        // Panggil fungsi saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', () => {
-            updateClock();
-            updateBatteryStatus();
-            
-            // Perbarui jam setiap menit
-            setInterval(updateClock, 60000); 
-            // Perbarui status baterai setiap 30 detik
-            setInterval(updateBatteryStatus, 30000);
-        });
-
-    </script>
+    
+    <script src="script.js"></script>
 </body>
 </html>
-

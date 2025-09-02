@@ -1,0 +1,207 @@
+/*
+=========================================================
+Gaya CSS untuk Halaman pH Check
+=========================================================
+*/
+
+:root {
+    --bg-color: #e0e0e0;
+    --light-shadow: #ffffff;
+    --dark-shadow: #a3b1c6;
+    --primary-color: #3b82f6;
+    --text-color: #333;
+    --input-bg: #e6e6e6;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Kontainer Utama */
+.ph-container {
+    width: 100%;
+    max-width: 450px;
+    background-color: var(--bg-color);
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 10px 10px 20px var(--dark-shadow), -10px -10px 20px var(--light-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.back-btn {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    color: var(--text-color);
+    font-size: 24px;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.back-btn:active {
+    transform: scale(0.9);
+}
+
+.ph-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ph-title {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.ph-subtitle {
+    font-size: 0.9em;
+    color: var(--text-color);
+    margin-bottom: 25px;
+    opacity: 0.7;
+}
+
+/* Select Indicator */
+.indicator-select-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+.indicator-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    background-color: var(--input-bg);
+    box-shadow: inset 3px 3px 6px var(--dark-shadow), inset -3px -3px 6px var(--light-shadow);
+    font-size: 1em;
+    color: var(--text-color);
+    cursor: pointer;
+    text-align: center;
+}
+
+.indicator-select:focus {
+    outline: none;
+}
+
+.indicator-select-arrow {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--primary-color);
+}
+
+/* Input Group */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.ph-input {
+    width: 100%;
+    padding: 2px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--input-bg);
+    box-shadow: inset 3px 3px 6px var(--dark-shadow), inset -3px -3px 6px var(--light-shadow);
+    font-size: 1em;
+    color: var(--text-color);
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.ph-input:focus {
+    outline: none;
+    background-color: #fff;
+}
+
+.check-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px var(--dark-shadow), -5px -5px 10px var(--light-shadow);
+    transition: all 0.2s;
+}
+
+.check-btn:active {
+    box-shadow: inset 3px 3px 6px var(--dark-shadow), inset -3px -3px 6px var(--light-shadow);
+    transform: scale(0.98);
+}
+
+/* Result Container */
+.result-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.color-box {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    background-color: #ccc;
+    box-shadow: 5px 5px 10px var(--dark-shadow), -5px -5px 10px var(--light-shadow);
+    margin-bottom: 20px;
+    transition: background-color 0.4s ease;
+}
+
+.result-text {
+    font-size: 1.1em;
+    color: var(--text-color);
+    min-height: 20px; /* Menghindari pergeseran saat teks berubah */
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .ph-container {
+        padding: 20px;
+    }
+
+    .ph-title {
+        font-size: 1.8em;
+    }
+
+    .ph-subtitle {
+        font-size: 0.8em;
+    }
+
+    .input-group {
+        gap: 10px;
+    }
+
+    .ph-input, .check-btn {
+        padding: 12px;
+        font-size: 1em;
+    }
+}

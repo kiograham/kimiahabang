@@ -26,7 +26,7 @@ body {
 
 .app-container {
     width: 100%; /* Menggunakan lebar 100% untuk mengisi layar */
-    height: 100vh; /* Menggunakan tinggi 100% dari viewport */
+    height: 100%; /* Menggunakan tinggi 100% dari viewport */
     background-color: var(--bg-color);
     border-radius: 0; /* Menghilangkan border-radius untuk tampilan full-screen */
     padding: 40px 15px 25px; /* Padding disesuaikan */
@@ -121,14 +121,26 @@ body {
     margin-left: 5px;
 }
 
-/* Kartu-kartu Kontrol Kecil */
-.control-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    margin-top: 80px;
+/* Ganti .control-grid menjadi .control-list */
+.control-list {
+    display: flex;
+    flex-direction: column; /* Ini yang membuat kartu tersusun ke bawah */
+    gap: 5px; /* Mengurangi jarak antar kartu */
+    margin-top: 49px; /* Mengurangi jarak dari kartu di atasnya */
 }
 
+/* Mengubah gaya control-card agar lebih mirip daftar */
+.control-card {
+    background-color: var(--bg-color);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 5px 5px 10px var(--dark-shadow), -5px -5px 10px var(--light-shadow);
+    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+    cursor: pointer;
+    display: flex; /* Menggunakan flexbox untuk ikon dan teks */
+    align-items: center; /* Menyelaraskan secara vertikal */
+    margin-bottom: 20px; /* Jarak antar menu */
+}
 .control-card {
     background-color: var(--bg-color);
     border-radius: 20px;

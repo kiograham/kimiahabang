@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indikator pH</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="ph-container">
+        <a href="../index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <div class="ph-content">
+            <h1 class="ph-title">INDIKATOR pH</h1>
+            <p class="ph-subtitle">Uji pH Larutan Menggunakan Indikator Alami</p>
+
+            <div class="indicator-select-wrapper">
+                <select id="indicator-select" class="indicator-select">
+                    <option value="kubis-merah" selected>Kubis Merah</option>
+                    <option value="bunga-sepatu">Bunga Sepatu</option>
+                    <option value="ubi-ungu">Ubi Ungu</option>
+                    <option value="mawar-merah">Mawar Merah</option>
+                    <option value="anggur-ungu">Anggur Ungu</option>
+                    <option value="kunyit">Kunyit</option>
+                    <option value="bunga-bougenville">Bunga Bougenville</option>
+                    <option value="jambu-biji-merah">Jambu Biji Merah</option>
+                    <option value="rosela">Rosela</option>
+                    <option value="bunga-telang">Bunga Telang</option>
+                    <option value="kulit-manggis">Kulit Manggis</option>
+                    <option value="bayam-merah">Bayam Merah</option>
+                    <option value="lemon">Lemon</option>
+                </select>
+                <div class="indicator-select-arrow">
+                    <i class="fas fa-caret-down"></i>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <input type="number" id="ph-input" class="ph-input" placeholder="Masukkan nilai pH (1-14)" min="1" max="14">
+                <button id="check-btn" class="check-btn">Cek pH</button>
+            </div>
+            
+            <div class="result-container">
+                <div id="color-box" class="color-box"></div>
+                <p id="result-text" class="result-text">Hasil akan muncul di sini</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
