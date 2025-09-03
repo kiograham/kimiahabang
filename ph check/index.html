@@ -18,19 +18,9 @@
 
             <div class="indicator-select-wrapper">
                 <select id="indicator-select" class="indicator-select">
-                    <option value="kubis-merah" selected>Kubis Merah</option>
-                    <option value="bunga-sepatu">Bunga Sepatu</option>
-                    <option value="ubi-ungu">Ubi Ungu</option>
-                    <option value="mawar-merah">Mawar Merah</option>
-                    <option value="anggur-ungu">Anggur Ungu</option>
-                    <option value="kunyit">Kunyit</option>
-                    <option value="bunga-bougenville">Bunga Bougenville</option>
-                    <option value="jambu-biji-merah">Jambu Biji Merah</option>
-                    <option value="rosela">Rosela</option>
-                    <option value="bunga-telang">Bunga Telang</option>
-                    <option value="kulit-manggis">Kulit Manggis</option>
-                    <option value="bayam-merah">Bayam Merah</option>
-                    <option value="lemon">Lemon</option>
+                    <option value="telang" selected>Bunga Telang</option>
+                    <option value="bugenvil">Bunga Bugenvil</option>
+                    <option value="kulit-buah-naga">Kulit Buah Naga</option>
                 </select>
                 <div class="indicator-select-arrow">
                     <i class="fas fa-caret-down"></i>
@@ -38,17 +28,30 @@
             </div>
 
             <div class="input-group">
-                <input type="number" id="ph-input" class="ph-input" placeholder="Masukkan nilai pH (1-14)" min="1" max="14">
-                <button id="check-btn" class="check-btn">Cek pH</button>
+                <input type="text" id="color-input" class="ph-input" placeholder="Masukkan deskripsi warna">
+                <button id="check-color-btn" class="check-btn">Cari pH</button>
             </div>
-            
+
             <div class="result-container">
                 <div id="color-box" class="color-box"></div>
                 <p id="result-text" class="result-text">Hasil akan muncul di sini</p>
             </div>
+
+            <div class="indicator-table-container">
+                <h2>Tabel Indikator</h2>
+                <table id="indicator-table">
+                    <thead>
+                        <tr>
+                            <th>Warna</th>
+                            <th>pH</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
         </div>
     </div>
-    
     <script src="script.js"></script>
 </body>
 </html>
